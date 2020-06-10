@@ -1,8 +1,50 @@
-﻿@{
+﻿@model IEnumerable<OnlineExamPortal.Models.Employees>
+@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelEmployee => emp.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelEmployee => emp.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelEmployee => emp.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelEmployee => emp.Department)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = emp.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = emp.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = emp.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

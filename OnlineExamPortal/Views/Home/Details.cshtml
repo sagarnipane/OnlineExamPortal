@@ -1,0 +1,41 @@
+﻿@model OnlineExamPortal.Models.Employees
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model => Model.Id)
+            </th>
+            <th class="col-md-3">
+                @Html.DisplayNameFor(Model => Model.Name)
+            </th>
+            <th class="col-md-3">
+                @Html.DisplayNameFor(Model => Model.Email)
+            </th>
+            <th class="col-md-3">
+                @Html.DisplayNameFor(Model => Model.Department)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="col-md-3">
+                @Html.DisplayFor(Model => Model.Id)
+            </td>
+            <td class="col-md-3">
+                @Html.DisplayFor(Model => Model.Name)
+            </td>
+            <td class="col-md-3">
+                @Html.DisplayFor(Model => Model.Email)
+            </td>
+            <td class="col-md-3">
+                @Html.DisplayFor(Model => Model.Department)
+            </td>
+        </tr>
+    </tbody>
+</table>

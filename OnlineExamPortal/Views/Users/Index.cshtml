@@ -1,0 +1,117 @@
+﻿@model IEnumerable<OnlineExamPortal.Models.Users>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomField1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomField2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomField3)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var user in Model)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => user.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.Email)
+            </td>
+            <td>
+                @{ if (user.Gender == true)
+                    {
+                        <div>Male</div>
+                    }
+                    else
+                    {
+                        <div>Female</div>
+                    }
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.Pin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.CustomField1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.CustomField2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => user.CustomField3)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = user.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = user.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = user.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
